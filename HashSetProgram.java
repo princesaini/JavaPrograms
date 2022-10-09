@@ -24,8 +24,9 @@ public class HashSetProgram {
         set.remove(2);
         System.out.println("Set after removing 2: " + set);
 
+        set.add(6);
         // Iterating through set
-        Iterator it = set.iterator();
+        Iterator<Integer> it = set.iterator();
         while (it.hasNext()) System.out.println(it.next());
 
         // isEmpty
