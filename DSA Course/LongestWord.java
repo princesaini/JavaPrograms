@@ -3,18 +3,18 @@
 // Do not count special characters or numbers.
 
 public class LongestWord {
-    static String longestWord(String sentence) {
-        String[] words = sentence.split(" ");
+    static String longestWord(String sentence) { 
+        String[] words = sentence.replaceAll("[^a-zA-Z ]", "").split(" ");
         String result = words[0];
         
         for (String x : words) {
-            if (x.replaceAll("[^a-zA-Z]", "").length() > result.length())
+            if (x.length() > result.length())
                 result = x;
         }
 
         return result;
     }
     public static void main(String[] args) {
-        System.out.println(longestWord("Hi I'm Sai"));
+        System.out.println(longestWord("Hi I'm Sai99"));
     }
 }
