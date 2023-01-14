@@ -1,4 +1,5 @@
 import java.util.Scanner;
+import java.util.Arrays;
 
 public class StringAnagram {
     static boolean isAnagram(String a, String b) {
@@ -33,6 +34,23 @@ public class StringAnagram {
             return false;
     }
 
+    static boolean isAnagram2(String s, String t) {
+        if (s.length() != t.length())
+            return false;
+        
+        char sc[] = s.toCharArray();
+        char tc[] = t.toCharArray();
+        
+        Arrays.sort(sc);
+        Arrays.sort(tc);
+
+        for (int i = 0; i < s.length(); i++)
+            if (sc[i] != tc[i])
+                return false;
+        
+        return true;
+    }
+
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         System.out.print("String 1: ");
@@ -42,7 +60,9 @@ public class StringAnagram {
         sc.close();
 
         boolean result = isAnagram(a, b);
+        System.out.println("Result using isAnagram function: " + (result?"Strings are Anagram":"Strings are not Anagram"));
 
-        System.out.println(result?"Strings are Anagram":"Strings are not Anagram");
+        result = isAnagram2(a, b);
+        System.out.println("Result using isAnagram2 function: " + (result?"Strings are Anagram":"Strings are not Anagram"));
     }
 }
