@@ -1,13 +1,14 @@
+// Implementing Stack using LinkedList
 import java.util.ArrayList;
 
 public class StackImplementation {
-    int size;
-    Node head;
+    int size;	// no of elements in stack
+    Node head;  // keep track of top element
 
     StackImplementation() {
         size = 0;
     }
-
+	
     public class Node {
         String data;
         Node next;
@@ -23,6 +24,7 @@ public class StackImplementation {
         }
     }
 
+	// method to push elements in stack
     public void push(String data) {
         Node newNode = new Node(data);
         if (isEmpty()) {
@@ -35,6 +37,7 @@ public class StackImplementation {
         size += 1;
     }
 
+	// method to delete the top element
     public String pop() {
         if (isEmpty())
             return "";
@@ -44,15 +47,18 @@ public class StackImplementation {
         return poppedElement;
     }
 
+	// method to retrieve top element
     public String peek() {
         if (isEmpty()) 
             return "Stack is Empty";
         return head.data;
     }
 
+	// method to check whether stack is empty or not
     public boolean isEmpty() {
         return size == 0;
     }
+
 
     @Override
     public String toString() {
@@ -70,18 +76,25 @@ public class StackImplementation {
     public static void main(String[] args) {
         StackImplementation stack = new StackImplementation();
         
+		// pushing elements in stack and then printing stack
         stack.push("Prince");
         stack.push("Manny");
         stack.push("Phil");
         stack.push("Claire");
         System.out.println(stack);
 
+		// pop and then print stack
         stack.pop();
         System.out.print("After Popping: ");
         System.out.println(stack);
 
+		// print top element
         System.out.println("Peek: " + stack.peek());
+		
+		// print size of stack
         System.out.println("Size of Stack: " + stack.size);
+		
+		// check whether stack is empty or not
         System.out.println("isEmpty: " + stack.isEmpty());
     }
 }
